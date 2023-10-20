@@ -37,12 +37,67 @@ src="https://www.facebook.com/tr?id=982125932360699&ev=PageView&noscript=1"
 
 <body>
 <style>
+.dropbtn {
+  background-color: #ffc107;
+  color: black;
+  padding: 12px 110px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #000000;
+  font-weight: bold;
+  
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #fadd00;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin: top:20;
+  top: 50%;
+
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 300px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+<style>
 img {
   width: 70%;
   height: auto;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.center {
+  padding: 10px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
 }
 span.small {
   font-size: smallest;
@@ -82,6 +137,19 @@ div.b {
 <li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
 	<p><b>1. Download and Install the application OpenVPN Connect. Choose what suits your device. </b>
     <medium>
+    	<p>Click on "Choose here!" to open the dropdown menu and select your device to download.</p>
+
+		<div class="dropdown">
+
+  			<button onclick="myFunction()" class="dropbtn">Choose here!</button>
+  				<div id="myDropdown" class="dropdown-content">
+    			<a href="https://tinyurl.com/xbalanced-openvpn/">a) Android Latest Devices 4.4 above</a>
+    			<a href="app/openvpnconnect_v3.0.5.apk">b) Android Lower Devices 4.4 below</a>
+    			<a href="https://apps.apple.com/us/app/openvpn-connect/id590379981/">c) iPhone/iPad OS</a>
+    			<a href="app/openvpn-connect-3.3.7.2979_signed.msi">d) Desktop/Laptop/PC</a>
+  				</div>
+		</div>
+<!--
         <p>a) OpenVPN Connect v3.2.7
         <span class="badge badge-warning"> Android Only </span><br/>
         <i>*Latest version for new android phone models* </i><br/>
@@ -110,6 +178,7 @@ div.b {
         <a class="btn btn-outline-warning waves-effect btn-sm" href="app/openvpn-connect-3.3.7.2979_signed.msi" style="float:right;">
         <i class="fa fa-download"></i> Download</a>
         <br/>
+-->
     </medium>
 </li>
 
@@ -117,9 +186,12 @@ div.b {
 <li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
 	<p><b>2. Download the openvpn configuration to your device. </b>
     <span class="badge badge-warning"> xBalanced-VPN.ovpn </span><br/>
-    <i>*click download button* </i>
-	<a class="btn btn-outline-warning waves-effect btn-sm" href="config/xBalanced-VPN.ovpn" style="float:right;">
-	<i class="fa fa-download"></i> Download</a>
+    <br/>
+    <i>*click download button* </i><br/>
+	<div class="center">
+    	<a class="btn btn-outline-warning waves-effect btn-sm" href="config/xBalanced-VPN.ovpn" style="float:left;">
+		<i class="fa fa-download"></i> Download</a>
+    </div>
 </li>
 <br>
 <li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;">
@@ -225,5 +297,25 @@ div.b {
     <b> Since July 2019 </b><br />
     <span class="small"><i><u>click to open facebook page</u></i></span>
 </a>
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 </ul></div></div></div></div></body></html>
